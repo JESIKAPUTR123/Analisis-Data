@@ -257,6 +257,22 @@ plt.xlabel('Cuaca')
 plt.ylabel('Jumlah Penyewaan Sepeda')
 plt.show()
 
+# prompt: selesaikan erornya di bagian correlation_matrix = day_df.corr()
+
+import matplotlib.pyplot as plt
+import numpy as np
+# ... (your existing code) ...
+
+# Melihat korelasi antar variabel pada day_df
+numerical_features = day_df.select_dtypes(include=np.number)
+correlation_matrix = numerical_features.corr()
+plt.figure(figsize=(12, 10))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
+plt.title('Korelasi antar variabel pada day_df')
+plt.show()
+
+# ... (rest of your code) ...
+
 """**Insight:**
 - Korelasi variabel: Suhu, musim, dan hari kerja mempengaruhi jumlah penyewaan sepeda.
 
